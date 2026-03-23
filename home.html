@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memories | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-page">
+    <div id="emoji-container"></div>
+
+    <nav class="navbar">
+        <a href="home.html" class="active">Home</a>
+        <a href="letter.html">The Letter</a>
+    </nav>
+
+    <div class="main-content">
+        <h1 class="main-title">“Quotes That Prove My Bestie Runs My Life” 👀</h1>
+        
+        <div class="memory-grid">
+            <div class="memory-card-wrapper">
+                <div class="envelope">
+                    <div class="top-flap"></div>
+                    <div class="letter-content">
+                        <img src="images/photo1.jpeg">
+                        <p>“Why do you never listen to me?” 🙄</p>
+                    </div>
+                    <div class="body-envelope"></div>
+                    <div class="front-flap"><div class="seal">❤️</div></div>
+                </div>
+            </div>
+
+            <div class="memory-card-wrapper">
+                <div class="envelope">
+                    <div class="top-flap"></div>
+                    <div class="letter-content">
+                        <img src="images/photo2.jpeg">
+                        <p>“Let’s eat.” 🍔</p>
+                    </div>
+                    <div class="body-envelope"></div>
+                    <div class="front-flap"><div class="seal">❤️</div></div>
+                </div>
+            </div>
+
+            <div class="memory-card-wrapper">
+                <div class="envelope">
+                    <div class="top-flap"></div>
+                    <div class="letter-content">
+                        <img src="images/photo3.jpeg">
+                        <p>“Look behind you… not directly!” 👀</p>
+                    </div>
+                    <div class="body-envelope"></div>
+                    <div class="front-flap"><div class="seal">❤️</div></div>
+                </div>
+            </div>
+
+            <div class="memory-card-wrapper">
+                <div class="envelope">
+                    <div class="top-flap"></div>
+                    <div class="letter-content">
+                        <img src="images/photo8.jpeg">
+                        <p>“Just give it a try-I’m there for you.” 🤝</p>
+                    </div>
+                    <div class="body-envelope"></div>
+                    <div class="front-flap"><div class="seal">❤️</div></div>
+                </div>
+            </div>
+
+            <div class="memory-card-wrapper">
+                <div class="envelope">
+                    <div class="top-flap"></div>
+                    <div class="letter-content">
+                        <img src="images/photo4.jpeg">
+                        <p>Can’t you remember what happened earlier? Want that again?” 😏</p>
+                    </div>
+                    <div class="body-envelope"></div>
+                    <div class="front-flap"><div class="seal">❤️</div></div>
+                </div>
+            </div>
+
+            <div class="memory-card-wrapper">
+                <div class="envelope">
+                    <div class="top-flap"></div>
+                    <div class="letter-content">
+                        <img src="images/photo5.jpeg">
+                        <p>“I told you not to do it.” 😑</p>
+                    </div>
+                    <div class="body-envelope"></div>
+                    <div class="front-flap"><div class="seal">❤️</div></div>
+                </div>
+            </div>
+
+            <div class="memory-card-wrapper">
+                <div class="envelope">
+                    <div class="top-flap"></div>
+                    <div class="letter-content">
+                        <img src="images/photo6.jpeg">
+                        <p>“Fine, do what you want-but don’t come crying to me later.” 😌</p>
+                    </div>
+                    <div class="body-envelope"></div>
+                    <div class="front-flap"><div class="seal">❤️</div></div>
+                </div>
+            </div>
+
+            <div class="memory-card-wrapper">
+                <div class="envelope">
+                    <div class="top-flap"></div>
+                    <div class="letter-content">
+                        <img src="images/photo7.jpeg">
+                        <p>“You’re always the one doing all the dumb work.” 😂</p>
+                    </div>
+                    <div class="body-envelope"></div>
+                    <div class="front-flap"><div class="seal">❤️</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const emojiList = ['❤️', '😍', '😘', '🌹', '💖', '✨', '🎈', '😂'];
+        const container = document.getElementById('emoji-container');
+
+        function createEmoji() {
+            const emoji = document.createElement('div');
+            emoji.classList.add('floating-emoji');
+            emoji.innerText = emojiList[Math.floor(Math.random() * emojiList.length)];
+            
+            // Random horizontal position
+            emoji.style.left = Math.random() * 100 + "vw";
+            
+            // Random speed between 3s and 6s
+            emoji.style.animationDuration = (Math.random() * 3 + 3) + "s";
+            
+            // Random transparency
+            emoji.style.opacity = Math.random();
+
+            container.appendChild(emoji);
+
+            // Clean up emoji after it falls
+            setTimeout(() => {
+                emoji.remove();
+            }, 6000);
+        }
+
+        // Create a new emoji every 400ms
+        setInterval(createEmoji, 400);
+    </script>
+</body>
+</html>

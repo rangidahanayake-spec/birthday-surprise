@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Gift</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="envelope-body">
+    <div id="emoji-container"></div>
+
+    <div class="envelope-wrapper">
+        <div class="envelope" onclick="this.classList.toggle('open')">
+            <div class="top-flap"></div>
+            <div class="letter">
+                <h3>Happy Birthday Mrs. CID 🕵️‍♀️</h3>
+                <p>I made something special just for you. Wanna see your surprise? 👀 Just wait… it’s worth it 💖✨</p>
+                <button onclick="window.location.href='home.html'" class="open-btn">View My Surprise ✨</button>
+            </div>
+            <div class="body-envelope"></div>
+            <div class="front-flap">
+                <div class="seal">❤️</div>
+                <p>Click to Open</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const emojiList = ['❤️', '😍', '😘', '🌹', '💖', '✨'];
+        const container = document.getElementById('emoji-container');
+
+        function createEmoji() {
+            const emoji = document.createElement('div');
+            emoji.classList.add('floating-emoji');
+            emoji.innerText = emojiList[Math.floor(Math.random() * emojiList.length)];
+            emoji.style.left = Math.random() * 100 + "vw";
+            emoji.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            emoji.style.opacity = Math.random();
+            container.appendChild(emoji);
+            setTimeout(() => { emoji.remove(); }, 5000);
+        }
+        setInterval(createEmoji, 300);
+    </script>
+</body>
+</html>

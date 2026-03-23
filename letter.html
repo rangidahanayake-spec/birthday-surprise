@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Letter For You</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="letter-page">
+    <div id="emoji-container"></div>
+
+    <nav class="navbar">
+        <a href="home.html">Home</a>
+        <a href="letter.html" class="active">The Letter</a>
+    </nav>
+
+    <div class="letter-section">
+        <div class="paper">
+            <div class="letter-image-header">
+                <img src="images/test.jpg" alt="Our Special Friendship">
+            </div>
+
+            <hr class="letter-divider">
+
+            <h1 id="typewriter-title"></h1>
+            <p id="typewriter-text"></p>
+        </div>
+    </div>
+
+    <script>
+        // UPDATED TITLE
+        const title = "Happy Birthday to the most important person in my life 🎂✨";
+
+        // UPDATED MESSAGE WITH ALL YOUR DETAILS
+        const message = "Hey my dearest bestie 💖,\n\nI don’t even know where to start, because how do you put into words someone who is literally your whole world? You’ve been there for me through everything - my highs, my lows, and especially those moments when I felt like I was completely breaking down. I don’t say this lightly… but I truly believe I’m still here today because of you. And I will never stop being grateful for that.\n\nYou’re not just my best friend - you’re my energy, my safe place, my partner in crime, my everything. I honestly cannot imagine a life without you in it. It would feel empty.\n\nAnd even though you act like a whole detective sometimes 😌, I secretly love every bit of it. Like when you say:\n\n“Let’s eat” 🍔 (our favorite solution to everything),\n“I told you not to do it” 😑 (and you’re always right, unfortunately),\n“Just give it a try-I’m there for you” 🤝 (the reason I keep going),\n“Can’t you remember what happened earlier? Want that again?” 😏 (your warning mode),\n“You’re always the one doing all the dumb work” 😂 (rude, but true),\n“Look behind you… not directly!” 👀 (still scary),\n“Why do you never listen to me?” 🙄 (I try, okay!),\nand “Fine, do what you want-but don’t come crying to me later.” 😌 (but I always come back anyway).\n\nThese little things might seem funny, but they mean so much to me because they’re you. And I wouldn’t trade you for anything in this world.\n\nThank you for staying. Thank you for understanding me even when I couldn’t understand myself. Thank you for loving me at my worst.\n\nI hope this year gives you all the happiness you deserve (which is A LOT). And no matter what happens, I’ll always be right here - just like you’ve always been for me.\n\nI love you more than words can ever explain ❤️\n\nForever your partner in crime,\n\n Rangi Nangi";
+
+        let i = 0, j = 0;
+        function type() {
+            if (i < title.length) {
+                document.getElementById("typewriter-title").innerHTML += title.charAt(i++);
+                setTimeout(type, 80); // Slightly faster title typing
+            } else if (j < message.length) {
+                let char = message.charAt(j++);
+                // This converts the "\n" in the string into actual line breaks in HTML
+                document.getElementById("typewriter-text").innerHTML += char === "\n" ? "<br>" : char;
+                setTimeout(type, 40); // Comfortable reading speed
+            }
+        }
+
+        // Floating Emoji Logic
+        const emojiList = ['❤️', '✨', '💖', '🌸', '🤞', '🎂', '🎉'];
+        function createEmoji() {
+            const container = document.getElementById('emoji-container');
+            if(!container) return;
+            const emoji = document.createElement('div');
+            emoji.classList.add('floating-emoji');
+            emoji.innerText = emojiList[Math.floor(Math.random() * emojiList.length)];
+            emoji.style.left = Math.random() * 100 + "vw";
+            emoji.style.animationDuration = (Math.random() * 3 + 4) + "s";
+            emoji.style.opacity = Math.random();
+            container.appendChild(emoji);
+            setTimeout(() => { emoji.remove(); }, 6000);
+        }
+        
+        window.onload = () => {
+            type();
+            setInterval(createEmoji, 500);
+        };
+    </script>
+</body>
+</html>
